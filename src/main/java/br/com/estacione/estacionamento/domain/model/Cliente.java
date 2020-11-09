@@ -1,5 +1,6 @@
 package br.com.estacione.estacionamento.domain.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +16,17 @@ public class Cliente {
 	private String nome;
 	private String email;
 	private String telefone;
+	
+	@Column(name="cpf", unique = true)
+	private String cpf;
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
 	public Long getId() {
 		return id;
@@ -55,7 +67,7 @@ public class Cliente {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -72,7 +84,5 @@ public class Cliente {
 			return false;
 		return true;
 	}
-	
-	
 
 }

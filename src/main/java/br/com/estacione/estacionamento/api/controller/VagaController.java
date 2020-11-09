@@ -37,12 +37,6 @@ public class VagaController{
 	public ResponseEntity<Object[]> buscaStatus(@PathVariable String vagaStatusVaga) {
 		List<Optional<Vaga>> vaga = vagaService.findByStatus(vagaStatusVaga);
 		return ResponseEntity.ok(vaga.toArray());
-//		if(vaga.isPresent()) {
-//			return ResponseEntity.ok(vaga.get());
-//			
-//		}
-//		
-//		return ResponseEntity.notFound().build();
 	}
 	
 	@GetMapping("/{vagaId}")
